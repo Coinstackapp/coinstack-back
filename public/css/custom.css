@@ -1,0 +1,14 @@
+.login-page, .register-page{
+    background-color: #171a3d;
+}
+.login-box-body, .register-box-body{
+    background-color: transparent;
+    color: #fff;
+}
+.login-box-msg, .register-box-msg{
+    color: #fff;
+}
+.btn-primary{
+    background-color: #13c1bf;
+    border-colo:#13c1bf;
+}
