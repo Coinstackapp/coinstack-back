@@ -178,7 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
-
+        App\Providers\ResponseMacroServiceProvider::class,
     ],
 
     /*
