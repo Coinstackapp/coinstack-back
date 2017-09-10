@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'auth', 'namespace' => 'API'], function () {
     Route::post('register', 'RegisterController@userRegistration');
+    Route::post('login', 'LoginController@login');
 });
 
 Route::group(['middleware' => 'auth:api', 'prefix'=>'data', 'namespace' => 'API'], function () {
@@ -26,9 +27,9 @@ Route::group(['middleware' => 'auth:api', 'prefix'=>'data', 'namespace' => 'API'
         return 1;
     });
 });
-
-Route::group(['prefix' => 'public', 'namespace' => 'API'], function () {
-    Route::get('test', function (){
-        return 1;
-    });
-});
+//
+//Route::group(['prefix' => 'public', 'namespace' => 'API'], function () {
+//    Route::get('test', function (){
+//        return 1;
+//    });
+//});

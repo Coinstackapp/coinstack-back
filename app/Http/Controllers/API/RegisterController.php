@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
-
+use App\Role;
 use App\User;
+use Illuminate\Http\Request;
+use JWTAuth;
 
 class RegisterController extends Controller
 {
@@ -18,20 +18,23 @@ class RegisterController extends Controller
         ]);
 
         $findUser = User::where('email', '=', $request->email)->select('*')->get()->first();
-        // dd($findUser);
         if ($findUser){
             return response()->error('Email Already Registered', 401);
         }
 
-        $user = User::create([
-            'name'              => $request->name,
-            'email'          => $request->email,
-            'password' => bcrypt($request->password)
-        ]);
-        $user->save();
+        try {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password)
+            ]);
+            $user->save();
 
-        $token = $user->createToken('My Token')->accessToken;
+            $token = JWTAuth::fromUser($user);
 
-        return response()->success(compact('user', 'token'));
+            return response()->success(compact('user','token', 'role'));
+        } catch (\Exception $e){
+            return response()->json($e->getMessage(), 500);
+        }
     }
 }
