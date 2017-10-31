@@ -23,6 +23,6 @@ Route::get('getCoinInfo', function (){
     $pair_name = [
         'altname'=>'XBTUSD'
     ];
-    die('here');
-    return $client->getAssetPairs($pair_name);
+    return 1;
+    //return $client->getAssetPairs($pair_name);
 });
