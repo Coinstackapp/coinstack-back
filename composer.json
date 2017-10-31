@@ -11,6 +11,7 @@
         "jeroennoten/laravel-adminlte": "^1.20",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
+        "pepijnolivier/laravel-kraken": "^1.0",
         "spatie/laravel-activitylog": "^2.1",
         "tymon/jwt-auth": "^1.0.0-beta.3@dev",
         "zizaco/entrust": "5.2.x-dev"

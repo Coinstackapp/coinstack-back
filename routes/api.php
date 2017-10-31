@@ -28,8 +28,8 @@ Route::group(['middleware' => 'auth:api', 'prefix'=>'data', 'namespace' => 'API'
     });
 });
 //
-//Route::group(['prefix' => 'public', 'namespace' => 'API'], function () {
-//    Route::get('test', function (){
-//        return 1;
-//    });
-//});
+Route::group(['prefix' => 'public', 'namespace' => 'API'], function () {
+    Route::get('getCoinInfo/{coinName}', 'CoinsPublicData@getCoinInfo');
+    Route::get('getTickerInfo/{coinName}', 'CoinsPublicData@getTickerInfo');
+    Route::get('getOHLC/{coinName}', 'CoinsPublicData@getOHLC');
+});
