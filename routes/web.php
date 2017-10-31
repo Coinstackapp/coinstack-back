@@ -19,7 +19,7 @@ Auth::routes();
 
 //return $client->getAssetPairs(array('altname'=>'BCH'));
 Route::get('getCoinInfo', function (){
-    //$client = new Client();
+    $client = new Client();
     $pair_name = [
         'altname'=>'XBTUSD'
     ];
